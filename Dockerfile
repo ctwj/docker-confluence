@@ -1,4 +1,4 @@
-FROM cptactionhank/atlassian-jira-software:7.12.0
+FROM cptactionhank/atlassian-confluence:6.13.0
 
 USER root
 
