@@ -1,6 +1,9 @@
 # docker-confluence
-doc
+confluence
 
+```
+docker run --detach --publish 8090:8090 ctwj/conflu
+```
 
 许可证
 ```
