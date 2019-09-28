@@ -11,7 +11,7 @@ docker run --detach --publish 8090:8090 ctwj/conflu
 # 访问地址（http://192.168.0.89）、服务器ID（BY9B-GWD1-1C78-K2DE）
 # 为你的信息
 
-java -jar t.jar -d -m test@test.com -n BAT -p jira -o http://192.168.0.89 -s BY9B-GWD1-1C78-K2DE
+java -jar t.jar -d -m test@test.com -n BAT -p conf -o http://192.168.0.89 -s BY9B-GWD1-1C78-K2DE
 ```
 
 t.jar
