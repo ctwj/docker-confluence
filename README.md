@@ -18,3 +18,14 @@ t.jar
 ```
 https://github.com/ctwj/docker-confluence/blob/master/t.jar
 ```
+
+
+# docker-compose 部署
+
+```
+git clone https://github.com/ctwj/docker-confluence.git
+cd docker-confluence/compose
+docker-compose up -d
+# 获取许可
+docker exec -it conflu java -jar /opt/atlassian/confluence/t.jar -d -m ctwj@qq.com -n CTWJ -p conf -o http://192.168.0.89 -s BY9B-GWD1-1C78-K2DE
+```
