@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+
+  confluence:
+    image: ctwj/conflu
+    container_name: conflu
+    expose:
+      - 8090
+      - 8091
+    ports:
+      - 8090:8090
+    networks:
+      - confnet
+    labels:
+      - "confnet.enable=true"
+      - "confnet.port=8090"
+      - "confnet.frontend.rule=Host:${DOMAIN}"
+      - "confnet.frontend.entryPoints=http,https"
+    volumes:
+      - ./data/confluence:/var/atlassian/application-data/confluence
+      - ./mysql-connector-java-5.1.47.jar:/opt/atlassian/confluence/confluence/WEB-INF/lib/mysql-connector-java-5.1.47.jar
+    extra_hosts:
+      - "${DOMAIN}:127.0.0.1"
+    networks:
+      confnet:
+        ipv4_address: 192.168.0.2
+
+  mysql:
+    container_name: confludb
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: confluence 
+      MYSQL_DATABASE: confluence 
+      MYSQL_USER: confluence 
+      MYSQL_PASSWORD: confluence
+    networks:
+      confnet:
+        ipv4_address: 192.168.0.3
+
+networks:
+  confnet:
+      external: true
