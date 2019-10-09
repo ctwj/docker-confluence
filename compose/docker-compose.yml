@@ -20,8 +20,6 @@ services:
     volumes:
       - ./data/confluence:/var/atlassian/application-data/confluence
       - ./mysql-connector-java-5.1.47.jar:/opt/atlassian/confluence/confluence/WEB-INF/lib/mysql-connector-java-5.1.47.jar
-    extra_hosts:
-      - "${DOMAIN}:127.0.0.1"
     networks:
       confnet:
         ipv4_address: 192.168.0.2
